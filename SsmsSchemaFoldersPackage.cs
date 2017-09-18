@@ -35,6 +35,7 @@ namespace SsmsSchemaFolders
     [ProvideAutoLoad("d114938f-591c-46cf-a785-500a82d97410")] //CommandGuids.ObjectExplorerToolWindowIDString
     [ProvideOptionPage(typeof(SchemaFolderOptions), "SQL Server Object Explorer", "Schema Folders", 114, 116, true)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
+    [ProvideMenuResource("Menus.ctmenu", 1)]
     public sealed class SsmsSchemaFoldersPackage : Package, IDebugOutput
     {
         /// <summary>
@@ -95,6 +96,7 @@ namespace SsmsSchemaFolders
 
             // Reg setting is removed after initialize. Wait short delay then recreate it.
             DelayAddSkipLoadingReg();
+            ActiveSnippets.CreateTempTablesFromQueryCommand.Initialize(this);
         }
 
         #endregion
