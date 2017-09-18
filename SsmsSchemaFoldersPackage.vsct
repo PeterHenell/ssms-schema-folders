@@ -35,9 +35,20 @@
          other menus or buttons (commands); from a visual point of view you can see the
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
+    <Menus>
+      <Menu guid="guidSsmsSchemaFoldersPackageCmdSet" id="TopLevelMenu" priority="0x700" type="Menu">
+        <Parent guid="guidSHLMainMenu"
+                id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>ActiveSnippets</ButtonText>
+          <CommandName>ActiveSnippets</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+    
     <Groups>
-      <Group guid="guidSsmsSchemaFoldersPackageCmdSet" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
+      <Group guid="guidSsmsSchemaFoldersPackageCmdSet" id="TopLevelMenu" priority="0x0600">
+        <Parent guid="guidSsmsSchemaFoldersPackageCmdSet" id="TopLevelMenu"/>
       </Group>
     </Groups>
 
@@ -53,10 +64,10 @@
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
       <Button guid="guidSsmsSchemaFoldersPackageCmdSet" id="CreateTempTablesFromQueryCommandId" priority="0x0100" type="Button">
-        <Parent guid="guidSsmsSchemaFoldersPackageCmdSet" id="MyMenuGroup" />
+        <Parent guid="guidSsmsSchemaFoldersPackageCmdSet" id="TopLevelMenu" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>Invoke CreateTempTablesFromQueryCommand</ButtonText>
+          <ButtonText>Create Temp Tables From Query</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -80,6 +91,7 @@
     <GuidSymbol name="guidSsmsSchemaFoldersPackageCmdSet" value="{932507fa-53c1-4fc1-9c59-5acafb9bf5f3}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="CreateTempTablesFromQueryCommandId" value="0x0100" />
+      <IDSymbol name="TopLevelMenu" value="0x1021"/>
     </GuidSymbol>
 
     <GuidSymbol name="guidImages" value="{1d08b8e6-bee3-46eb-b909-e8a4885cda59}" >
