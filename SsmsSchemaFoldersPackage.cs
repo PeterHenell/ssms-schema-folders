@@ -269,7 +269,7 @@ namespace SsmsSchemaFolders
                             nodeExpanding.Tick -= nodeExpandingEvent;
                             nodeExpanding.Stop();
                             nodeExpanding.Dispose();
-
+                            
                             ReorganizeFolders(e.Node, true);
 
                             e.Node.TreeView.Cursor = Cursors.Default;

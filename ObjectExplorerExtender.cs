@@ -194,6 +194,10 @@ namespace SsmsSchemaFolders
                 foreach (TreeNode childNode in schemas[schema])
                 {
                     node.Nodes.Remove(childNode);
+                    var submenu =  new MenuItem("Open Liquibase script");
+                    submenu.Click += Submenu_Click;
+                    
+                    
                     schemaNode.Nodes.Add(childNode);
                 }
             }
@@ -203,6 +207,15 @@ namespace SsmsSchemaFolders
             //debug_message(DateTime.Now.ToString("ss.fff"));
 
             return schemas.Count;
+        }
+
+        private void Submenu_Click(object sender, EventArgs e)
+        {
+            if (sender is MenuItem)
+            {
+                var mi = sender as MenuItem;
+                MessageBox.Show("Test");
+            }
         }
 
         private void debug_message(string message)
